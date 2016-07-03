@@ -1,3 +1,6 @@
+# fun-animation
+Messing around with CSS animations...
+
 ### Setup
 
 ```sh
@@ -16,3 +19,4 @@ Yes, all the dev dependencies are in package.json's dependencies.  This is to ma
 To deploy: `git push heroku master`
 To test locally: `heroku local web`
 To open production: `heroku open`
+=======
