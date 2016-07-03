@@ -1,6 +1,8 @@
 import React from 'react';
 import SimpleOdometer from './simple_odometer.jsx';
 import GradualOdometer from './gradual_odometer.jsx';
+import SpinningOdometer from './spinning_odometer.jsx';
+
 
 export default class App extends React.Component{
     constructor(props){
@@ -21,8 +23,11 @@ export default class App extends React.Component{
         return (
             <div className="main">
                 <input type="number" value={this.state.value} onChange={this.handleChange}/>
-                <SimpleOdometer number={this.state.value}/>
-                <GradualOdometer number={this.state.value}/>
+                {/*<SimpleOdometer number={this.state.value}/>
+                <GradualOdometer number={this.state.value} speed={10}/>*/}
+                <GradualOdometer number={this.state.value} speed={5}/>
+                <SpinningOdometer number={this.state.value} speed={5}/>
+
             </div>
         );
     }

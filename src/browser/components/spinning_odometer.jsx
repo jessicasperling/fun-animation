@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+//window.requestAnimationFrame doesn't seem to effect the performance since we're dom manipulating?
 
-export default class GradualOdometer extends React.Component{
+export default class SpinningOdometer extends React.Component {
     static get propTypes(){
         return{
             number : PropTypes.number.isRequired,
@@ -16,13 +18,13 @@ export default class GradualOdometer extends React.Component{
         };
     }
 
-    static get defaultProps(){
+    static get defaultProps() {
         return {
             speed: 10
         };
     }
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             number : 0,
@@ -30,11 +32,11 @@ export default class GradualOdometer extends React.Component{
         }
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         this.getNextNumber(nextProps.number);
     }
 
-    getNextNumber(number){
+    getNextNumber(number) {
         if(this.state.currentAnimation){
             clearInterval(this.state.currentAnimation);
         }
@@ -43,7 +45,7 @@ export default class GradualOdometer extends React.Component{
         });
     }
 
-    animateNumber(number){
+    animateNumber(number) {
         let next = number;
         let old = this.state.number;
 
@@ -51,8 +53,11 @@ export default class GradualOdometer extends React.Component{
             const curr = this.state.number;
             const staticInterval = this.getInterval(next, curr);
 
+
             if(next > curr){
-               this.setNextNumber(staticInterval + curr);
+
+                this.setNextNumber(staticInterval + curr);
+
             }else if (next < curr){
                 this.setNextNumber(curr - staticInterval);
             }else{
@@ -65,16 +70,17 @@ export default class GradualOdometer extends React.Component{
         }.bind(this),this.getSpeed(next, old));
     }
 
-    getSpeed(before, after){
-        const getPureSpeed = 1/Math.abs(before-after);
-        return Math.max(getPureSpeed, 20);
+    getSpeed(before, after) {
+        const getPureSpeed = 1 / Math.abs(before - after);
+        // return Math.max(getPureSpeed, 20);
+        return 100
     }
 
-    getInterval(before, after){
+    getInterval(before, after) {
         return Math.ceil(Math.abs(before-after)*2/(this.props.speed));
     }
 
-    setNextNumber(newNum){
+    setNextNumber(newNum) {
         this.setState({
             number : newNum
         });
@@ -83,8 +89,12 @@ export default class GradualOdometer extends React.Component{
     render() {
         return (
             <div className="odometer">
-                <p className="label">{"Gradual "}</p>
-                <span>{this.state.number}</span>
+                <p className="label">{"Spinning"}</p>
+                <div className="cover">
+                <ReactCSSTransitionGroup transitionName="spin" transitionEnterTimeout={100} transitionLeaveTimeout={100}>
+                    <p key={this.state.number} className="number">{this.state.number}</p>
+                </ReactCSSTransitionGroup>
+                </div>
             </div>
         );
     }

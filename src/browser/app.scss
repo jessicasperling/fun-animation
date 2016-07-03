@@ -1,10 +1,45 @@
 .odometer{
     font-size: 2em;
-    color: lightblue;
+    color: green;
     margin: 1em;
+    position: relative;
 
     .label{
         color: black;
         font-size: .5em;
     }
+
+    .number{
+        position: absolute;
+        margin: 0;
+    }
+
+    .cover{
+        position: absolute;
+        top: 0em;
+        height: 1em;
+        width: 100%;
+        margin-top: 1em;
+        overflow: hidden;
+    }
+}
+
+
+.spin-enter {
+    top: -1em;
+}
+
+.spin-enter.spin-enter-active {
+    top: 0em;
+    transition: top 50ms ease-in;
+}
+
+.spin-leave {
+    top: 0em;
+}
+
+.spin-leave.spin-leave-active {
+    top: 1em;
+    transition: top 50ms ease-in;
+
 }
