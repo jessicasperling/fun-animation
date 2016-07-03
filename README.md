@@ -1,5 +1,7 @@
 # fun-animation
-Messing around with CSS animations...
+Messing around with CSS and Javascript animations...
+
+Currently inspired by : ![alt tag](https://d13yacurqjgara.cloudfront.net/users/57127/screenshots/993492/shot-gif.gif)
 
 ### Setup
 
