@@ -55,6 +55,7 @@ export default class SimpleOdometer extends React.Component{
     render() {
         return (
             <div className="odometer">
+                <p className="label">{"Simple "}</p>
                 <span>{this.state.number}</span>
             </div>
         );
