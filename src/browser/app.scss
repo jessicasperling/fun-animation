@@ -12,6 +12,7 @@
     .number{
         position: absolute;
         margin: 0;
+        display: inline-block;
     }
 
     .cover{
@@ -22,24 +23,34 @@
         margin-top: 1em;
         overflow: hidden;
     }
+
+    .place{
+        display: inline-block;
+        position: relative;
+    }
 }
 
 
 .spin-enter {
-    top: -1em;
+    -webkit-transform: translateY(-1.5em); /* Safari */
+    transform:  translateY(-1.5em);
 }
 
 .spin-enter.spin-enter-active {
-    top: 0em;
-    transition: top 50ms ease-in;
+    -webkit-transform: translateY(-1.5em); /* Safari */
+    transform:  translateY(-1.5em);
+    -webkit-transition:  -webkit-transform 50ms; /* Safari */
+    transition:  transform 50ms;
 }
 
 .spin-leave {
-    top: 0em;
+    -webkit-transform: translateY(0em); /* Safari */
+    transform:  translateY(0em);
 }
 
 .spin-leave.spin-leave-active {
-    top: 1em;
-    transition: top 50ms ease-in;
-
+    -webkit-transform: translateY(1.5em); /* Safari */
+    transform:  translateY(1.5em);
+    -webkit-transition:  -webkit-transform 50ms; /* Safari */
+    transition:  transform 50ms;
 }
