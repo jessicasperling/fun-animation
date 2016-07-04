@@ -1,7 +1,8 @@
 # fun-animation
 Messing around with CSS and Javascript animations...
 
-Currently inspired by : ![alt tag](https://d13yacurqjgara.cloudfront.net/users/57127/screenshots/993492/shot-gif.gif)
+Currently inspired by :
+![alt tag](https://d13yacurqjgara.cloudfront.net/users/296358/screenshots/1518359/water2.gif)
 
 ### Setup
 
