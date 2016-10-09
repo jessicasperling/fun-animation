@@ -1,0 +1,89 @@
+$standardCurve: cubic-bezier(0.4, 0.0, 0.2, 1);
+$cardBackground : #fafafa;
+$contentBackground: #eff0f1;
+$shadowColor: #eff0f1;
+$mainColor: lightblue;
+
+.expander-container {
+    display: flex;
+    padding: 16px;
+
+    .drawer{
+        width: 350px;
+        border-radius: 4px;
+        position: relative;
+    }
+
+    .drawer-content{
+        background : $mainColor;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    }
+
+    .circle{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background: $contentBackground;
+        margin: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .content-container{
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+        padding: 16px;
+    }
+
+    .rectangle{
+        height: 10px;
+        margin: 16px 0;
+        width: 100%;
+        background: $contentBackground;
+    }
+
+    .content{
+        border-top: 2px solid $shadowColor;
+        background : $mainColor;
+        flex: 1 100%;
+        display: flex;
+        flex-flow: row wrap;
+        padding: 16px;
+
+        height: 0%;
+        opacity: 0;
+        transition: height $standardCurve .375s .075s, opacity $standardCurve .075s;
+
+        &.expanded{
+            height: 100%;
+            opacity: 1;
+            transition: height $standardCurve .375s .075s, opacity $standardCurve .15s .075s;
+        }
+    }
+
+    .inner-content{
+        margin: 16px;
+        width: 64px;
+        height: 64px;
+        background: $contentBackground;
+        border-radius: 8px;
+    }
+
+    .handle{
+        width: 30px;
+        height: 30px;
+
+        position: relative;
+        margin: 10px 50%;
+        transform: translateX(-50%);
+        transition: transform $standardCurve .075s;
+
+        &.expanded{
+            transform: translateX(-50%) rotate(180deg);
+            transition: transform $standardCurve .075s;
+        }
+    }
+}
+
+

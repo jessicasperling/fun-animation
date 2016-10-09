@@ -1,0 +1,56 @@
+.odometer{
+    font-size: 2em;
+    color: green;
+    margin: 1em;
+    position: relative;
+
+    .label{
+        color: black;
+        font-size: .5em;
+    }
+
+    .number{
+        position: absolute;
+        margin: 0;
+        display: inline-block;
+    }
+
+    .cover{
+        position: absolute;
+        top: 0em;
+        height: 1em;
+        width: 100%;
+        margin-top: 1em;
+        overflow: hidden;
+    }
+
+    .place{
+        display: inline-block;
+        position: relative;
+    }
+}
+
+
+.spin-enter {
+    -webkit-transform: translateY(-1.5em); /* Safari */
+    transform:  translateY(-1.5em);
+}
+
+.spin-enter.spin-enter-active {
+    -webkit-transform: translateY(-1.5em); /* Safari */
+    transform:  translateY(-1.5em);
+    -webkit-transition:  -webkit-transform 50ms; /* Safari */
+    transition:  transform 50ms;
+}
+
+.spin-leave {
+    -webkit-transform: translateY(0em); /* Safari */
+    transform:  translateY(0em);
+}
+
+.spin-leave.spin-leave-active {
+    -webkit-transform: translateY(1.5em); /* Safari */
+    transform:  translateY(1.5em);
+    -webkit-transition:  -webkit-transform 50ms; /* Safari */
+    transition:  transform 50ms;
+}

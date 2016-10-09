@@ -1,56 +1,47 @@
-.odometer{
-    font-size: 2em;
-    color: green;
-    margin: 1em;
+@import "reset";
+$mainBlue : #4ed0e1;
+$mainFont: 'Roboto', sans-serif;
+$mainBackground : #fafafa;
+
+$intoScreenAnimation: cubic-bezier(0.0, 0.0, 0.2, 1);;
+
+body{
+    background : $mainBackground;
+}
+
+
+nav {
+    background : $mainBlue;
+    font-family: $mainFont;
     position: relative;
-
-    .label{
-        color: black;
-        font-size: .5em;
-    }
-
-    .number{
-        position: absolute;
-        margin: 0;
-        display: inline-block;
-    }
-
-    .cover{
-        position: absolute;
-        top: 0em;
-        height: 1em;
-        width: 100%;
-        margin-top: 1em;
-        overflow: hidden;
-    }
-
-    .place{
-        display: inline-block;
-        position: relative;
-    }
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
-
-.spin-enter {
-    -webkit-transform: translateY(-1.5em); /* Safari */
-    transform:  translateY(-1.5em);
+a:link, a:visited, a:hover, a:active, a:-webkit-any-link{
+    text-decoration: none;
+    color: white;
 }
 
-.spin-enter.spin-enter-active {
-    -webkit-transform: translateY(-1.5em); /* Safari */
-    transform:  translateY(-1.5em);
-    -webkit-transition:  -webkit-transform 50ms; /* Safari */
-    transition:  transform 50ms;
+.nav-option{
+    color: white;
+    display: inline-block;
+    padding: 16px;
 }
 
-.spin-leave {
-    -webkit-transform: translateY(0em); /* Safari */
-    transform:  translateY(0em);
+.nav-load-appear {
+    transform : translateY(-100%);
+    -webkit-transform: translateY(-100%); /* Safari */
 }
 
-.spin-leave.spin-leave-active {
-    -webkit-transform: translateY(1.5em); /* Safari */
-    transform:  translateY(1.5em);
-    -webkit-transition:  -webkit-transform 50ms; /* Safari */
-    transition:  transform 50ms;
+.nav-load-appear.nav-load-appear-active {
+    -webkit-transform: translateY(0%); /* Safari */
+    transform:  translateY(0%);
+    -webkit-transition:  -webkit-transform $intoScreenAnimation 225ms; /* Safari */
+    transition:  transform $intoScreenAnimation 225ms;
+}
+
+.current-view{
+    margin-top: 54px;
+    padding: 32px;
 }
